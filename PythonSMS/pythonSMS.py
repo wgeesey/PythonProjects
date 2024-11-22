@@ -10,6 +10,7 @@ client = Client(account_sid, auth_token)
 
 message = client.message.create(
 								from_='your number',
+								body='Your message in here',
 								to='destination number'
 								)
 
