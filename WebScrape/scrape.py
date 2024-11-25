@@ -61,4 +61,18 @@ def create_custom_hn(links, subtext):
         # If a score is found, process it
         if len(vote):
             points = int(vote[0].getText().replace(' points', ''))  # Extract and convert the score to an integer
-            # Only add the story if the points are greater th
+            # Only add the story if the points are greater than 99
+            if points > 99:
+                hn.append({'title': title, 'link': href, 'votes': points})
+    
+    # Return the sorted list of stories by votes
+    return sort_stories_by_votes(hn)
+
+# Pretty print the final list of stories that have at least 100 votes, sorted by votes
+pprint.pprint(create_custom_hn(megalink, megasub))
+
+# Recommendations:
+# 1. Familiarize yourself with BeautifulSoup to become comfortable with HTML parsing.
+# 2. Scraping may not always be necessary—check if an API is available for easier access to data.
+# 3. If scraping becomes complex, consider using a framework like Scrapy that can handle the heavy lifting.
+# 4. Learn how to store scraped data into a database for easier access and analysis.
